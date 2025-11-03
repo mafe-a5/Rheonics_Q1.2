@@ -1,0 +1,61 @@
+/* Base app background */
+QWidget {
+    background-color: #fafafa
+}
+
+/* Sidebar */
+#sidebar {
+    background-color: #ffffff;
+    border-right: 1px solid #e5e5e5;
+}
+
+/* Main content frames */
+QFrame {
+    background-color: #fafafa
+}
+
+/* Header title */
+QLabel#header {
+    font-size: 30px;
+    font-weight: 800;
+    padding: 25px;
+    color: #0F172A;
+}
+
+/* Sidebar buttons only (scoped) */
+#sidebar QPushButton {
+    text-align: left;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    background: transparent;
+    color: #0F172A;
+    border: none;
+}
+
+#sidebar QPushButton:hover {
+    background-color: rgba(0,0,0,0.08);
+}
+
+/* Language popup (inherits app style) */
+QMenu {
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+QMenu::item {
+    padding: 8px 15px;
+    font-size: 14px;
+    color: #0F172A;
+}
+
+QMenu::item:selected {
+    background-color: #e6f2ff;
+}
+
+#arrowIcon {
+    color: #0F172A;
+}
