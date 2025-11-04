@@ -9,19 +9,16 @@ def load_json(path):
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
-
 def themed_icon(light, dark, theme):
     folder = "dark" if theme == "dark" else "light"
     file = dark if theme == "dark" else light
     return QIcon(os.path.join(BASE, "assets", folder, file))
-
 
 def themed_logo(theme, collapsed):
     if theme == "dark":
         return ("Rheonics_Logo_blue_singleline_white 02.png"
             if collapsed else "Rheonics_Logo_blue_singleline_white 01.png")
     return "Rheonics_Logo_blue_singleline-HQ.png"
-
 
 # Main
 class Dashboard(QWidget):
@@ -41,7 +38,7 @@ class Dashboard(QWidget):
         self.load_theme()
         self.refresh_ui()
 
-    # UI
+    # UI Construction
     def build_ui(self):
         self.setWindowTitle("Challenge Rheonics")
         self.setMinimumSize(1200, 720)
@@ -101,15 +98,14 @@ class Dashboard(QWidget):
 
     def build_content(self):
         from dashboard import DashboardPage
-
         frame = QFrame()
         layout = QVBoxLayout(frame)
         self.header = QLabel(alignment=Qt.AlignLeft)
         self.header.setObjectName("header")
         layout.addWidget(self.header)
 
-        # layout.addStretch()
-        self.dashboard = DashboardPage()
+        # Dashboard page
+        self.dashboard = DashboardPage(lang=self.lang, tr=self.tr[self.lang])
         layout.addWidget(self.dashboard)
         self.dashboard.hide()
         return frame
@@ -125,7 +121,6 @@ class Dashboard(QWidget):
         btn.setIconSize(QSize(22, 22))
         btn.setMinimumHeight(38)
         btn.setCursor(Qt.PointingHandCursor)
-        btn.setLayoutDirection(Qt.LeftToRight)
         return btn
 
     # Navigation
@@ -206,6 +201,10 @@ class Dashboard(QWidget):
             self.lang = "es"
 
         self.refresh_ui()
+
+        # Actualizar dashboard
+        if hasattr(self, "dashboard"):
+            self.dashboard.update_translations(self.lang, self.tr[self.lang])
 
     # Theme & Language
     def t(self, key):

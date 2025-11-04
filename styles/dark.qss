@@ -1,20 +1,23 @@
-/* Base app background */
+/* -------------------- Base app background -------------------- */
 QWidget {
     background-color: #0F172A;
+    color: #e6eef8;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 13px;
 }
 
-/* Sidebar */
+/* -------------------- Sidebar -------------------- */
 #sidebar {
     background-color: #0F172A;
     border-right: 1px solid #172034;
 }
 
-/* Main content frames */
+/* -------------------- Main content frames -------------------- */
 QFrame {
     background-color: #0F172A;
 }
 
-/* Header title */
+/* -------------------- Header title -------------------- */
 QLabel#header {
     font-size: 30px;
     font-weight: 800;
@@ -22,7 +25,7 @@ QLabel#header {
     color: #e6eef8;
 }
 
-/* Sidebar buttons only (scoped) */
+/* -------------------- Sidebar buttons -------------------- */
 #sidebar QPushButton {
     text-align: left;
     padding: 8px;
@@ -33,29 +36,166 @@ QLabel#header {
     color: #e6eef8;
     border: none;
 }
-
 #sidebar QPushButton:hover {
     background-color: rgba(255,255,255,0.06);
 }
 
-/* Language popup */
+/* -------------------- Language popup -------------------- */
 QMenu {
     background-color: #0F172A;
     border: 1px solid #1b2937;
     border-radius: 6px;
     padding: 6px;
 }
-
 QMenu::item {
     padding: 8px 15px;
     font-size: 14px;
     color: #e6eef8;
 }
-
 QMenu::item:selected {
     background-color: #172034;
 }
 
+/* -------------------- Arrow icon -------------------- */
 #arrowIcon {
-    color: #e6eef8; 
+    color: #e6eef8;
+}
+
+/* -------------------- Dashboard Styles -------------------- */
+
+/* Filtros superiores */
+#SearchBox, #ComboBox {
+    border: 1px solid #334155;
+    border-radius: 7px;
+    background-color: #1E293B;
+    padding: 7px 9px;
+    color: #e6eef8;
+}
+#SearchBox:focus, #ComboBox:focus {
+    border: 1px solid #3B82F6;
+}
+
+/* Botón "Add Sensor +" */
+#AddButton {
+    background-color: #3B82F6;
+    color: #FFFFFF;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 18px;
+}
+#AddButton:hover {
+    background-color: #1D4ED8;
+}
+
+/* Tarjetas de estadísticas */
+#StatCard {
+    background-color: #1E293B;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 10px;
+}
+#CardTitle {
+    color: #94A3B8;
+    font-size: 14px;
+    font-weight: 500;
+}
+#CardValue {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e6eef8;
+}
+#CardChange {
+    color: #10B981;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+/* Gráfico principal */
+#ChartFrame {
+    background-color: #1E293B;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* Panel lateral de mediciones */
+#MeasuresFrame {
+    background-color: #1E293B;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 10px;
+}
+#MeasureLabel {
+    font-weight: 600;
+    font-size: 13px;
+    color: #e6eef8;
+}
+#MeasureValue {
+    font-size: 12px;
+    color: #e6eef8;
+}
+#ViscosityLabel { color: #FCA5A5; }
+#TemperatureLabel { color: #FACC15; }
+#DensityLabel { color: #86EFAC; }
+#PressureLabel { color: #A5B4FC; }
+
+/* Títulos de sección */
+#SectionTitle {
+    font-size: 16px;
+    font-weight: bold;
+    color: #e6eef8;
+    margin-top: 10px;
+}
+
+/* Tabla de sensores */
+#SensorTable {
+    background-color: #1E293B;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    gridline-color: #334155;
+}
+QHeaderView::section {
+    background-color: #0F172A;
+    color: #CBD5E1;
+    padding: 8px;
+    font-weight: bold;
+    border: none;
+}
+QTableWidget::item:alternate {
+    background-color: #111827;
+}
+
+/* Botón de edición */
+#EditButton {
+    background-color: transparent;
+    border: none;
+    font-size: 15px;
+    color: #93C5FD;
+}
+#EditButton:hover {
+    color: #e6eef8;
+}
+
+/* Switch personalizado */
+#Switch {
+    min-width: 36px;
+    max-width: 36px;
+    min-height: 20px;
+    max-height: 20px;
+    border-radius: 10px;
+    background-color: #475569;
+}
+#Switch::indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    margin: 2px;
+}
+#Switch:checked {
+    background-color: #10B981;
+}
+#Switch:checked::indicator {
+    margin-left: 24px;
 }
