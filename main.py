@@ -100,12 +100,18 @@ class Dashboard(QWidget):
         return frame
 
     def build_content(self):
+        from dashboard import DashboardPage
+
         frame = QFrame()
         layout = QVBoxLayout(frame)
         self.header = QLabel(alignment=Qt.AlignLeft)
         self.header.setObjectName("header")
         layout.addWidget(self.header)
-        layout.addStretch()
+
+        # layout.addStretch()
+        self.dashboard = DashboardPage()
+        layout.addWidget(self.dashboard)
+        self.dashboard.hide()
         return frame
 
     def nav_btn(self, light, dark, callback, text_key=None):
@@ -162,16 +168,24 @@ class Dashboard(QWidget):
         else:
             self.btn_sensors.setText("▼")
 
+    def hide_all_pages(self):
+        self.dashboard.hide()
+
     def go_dashboard(self):
+        self.hide_all_pages()
         self.header.setText(self.t("dashboard"))
+        self.dashboard.show()
 
     def open_help(self):
+        self.hide_all_pages()
         self.header.setText(self.t("help"))
 
     def open_account(self):
+        self.hide_all_pages()
         self.header.setText(self.t("account"))
 
     def open_sensor_screen(self):
+        self.hide_all_pages()
         self.header.setText("SRV-4829-AC73")
 
     def open_language_menu(self):
